@@ -167,3 +167,23 @@ def test_seeded_edf_crosscheck(arithmetic):
         vectors.append({'tasks':tasks,'demand':curve})
     script="const fs=require('node:fs'),{demand}=require('./scripts/demand.cjs');const a=JSON.parse(fs.readFileSync(0,'utf8'));if(a.some(x=>JSON.stringify(demand(x.tasks))!==JSON.stringify(x.demand)))throw Error('Cross-language demand mismatch');"
     subprocess.run(['node','-e',script],input=json.dumps(vectors),text=True,cwd=ROOT,check=True)
+
+def test_actual_vm_states_match_independent_proof_replay(deploy,direct_vm,direct_alice,direct_bob):
+    script="process.stdout.write(JSON.stringify(require('./scripts/proof-checks.cjs').plan));"
+    plan=json.loads(subprocess.run(['node','-e',script],text=True,cwd=ROOT,capture_output=True,check=True).stdout)
+    c=deploy(); start=c.get_state(); trace=[]; players=[direct_alice,direct_bob]
+    for item in plan:
+        before=c.get_state(); index,revision=item['args']; direct_vm.sender=players[item['caller']]
+        if item.get('error'):
+            with direct_vm.expect_revert(item['error']):getattr(c,item['method'])(index,revision)
+            assert c.get_state()==before
+        else:
+            if item['method']=='activate' and before['catalog'][index]['compiled'] is None:mock(direct_vm,index)
+            getattr(c,item['method'])(index,revision)
+        trace.append({'item':item,'before':before,'after':c.get_state()})
+    script="""const fs=require('node:fs'),{reports,initial,replay,final}=require('./scripts/proof-checks.cjs'),{equal}=require('./scripts/transport.cjs');
+const x=JSON.parse(fs.readFileSync(0,'utf8')),d={reports:reports('a'.repeat(40)),callers:[x.start.catalog[0].owner,x.start.catalog[1].owner]};
+if(!equal(initial(d),x.start))throw Error('Initial VM state mismatch');
+for(const f of x.trace){if(!f.item.error)replay(f.before,f.item,f.after,d);else if(!equal(f.before,f.after))throw Error('Rejected state changed');}
+final(x.trace.at(-1).after);"""
+    subprocess.run(['node','-e',script],input=json.dumps({'start':start,'trace':trace}),text=True,cwd=ROOT,check=True)
