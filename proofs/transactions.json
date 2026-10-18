@@ -1,0 +1,19 @@
+{
+  "source_sha256": "4231bd672ada9865d4e71dffd83d56c57154b52c2b76abba2bdc7c021bc2070a",
+  "hashes": {
+    "deployment": "0xc149542955b8d2b4bdf9f929126a551b3148fbc0074c3fbbe1cddcd6ffc1b0fb",
+    "unknown-bound": "0xe5b0ed21f7d3dd910c0bc3f79473953d49a6ce1dfa4499c67fe0ce25bb5cdeef",
+    "pulse-admit": "0xc8cc4356351a6b97b67a316ba016198d82eede8159581f62f0e9424c75451050",
+    "scan-deadline-reject": "0x049560e873c8570fe66af207415d1f57829085f76a4344103cf5289acde19ec8",
+    "bulk-admit": "0x144c4bb85ab22648b4e64b1c3ad7dbc9f302bff71d8d519abdcdfc75c7b4fa38",
+    "odd-period": "0x1597269d275b7e7d2a3fe41a4f75409fbe6cdd9253092f1c02647a0273659c78",
+    "wrong-owner-release": "0x00183eb7405bcd0dea7efee5482e27b9f3ba61952ce326e4faa6805193890c5c",
+    "pulse-release": "0xf69782facb126605fc2c37f3e0e6d67ea7698cbbebca03342e06db7b4dfa5f24",
+    "scan-cached-retry": "0x32a2ef0dab4119dc5c17f37d7c4c274ccb766c25c38d5151fc964324c436a85d",
+    "stale-activation": "0xf55a1d640383001415f02bba30667249702c81353fa1e731384d8bd9bafae1a5",
+    "pulse-cached-reject": "0x6198ca914ad6855891bff9d957f9a5543c1388075650a5f10966be5215a2b7e5",
+    "bulk-release": "0x0def8ce63bf26f5ca383e42f8f316a6fb74b03295c270b3dec8769e7ad00d340",
+    "duplicate-scan": "0x3983ecebe5df46f2060351bf670af6c4469a136157b2d4dec134df1fa8e75f46",
+    "fill-exact-capacity": "0xdf9e845c668a56609c8b63734ba87673025111e7fccc0acf11139503addd5b60"
+  }
+}

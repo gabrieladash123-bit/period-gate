@@ -1,0 +1,1500 @@
+{
+  "label": "bulk-release",
+  "method": "release",
+  "args": [
+    2,
+    4
+  ],
+  "caller": 1,
+  "contract": "0xb3BB25567B23258197c9b3b57428AaFBaf59a659",
+  "transaction": "0x0def8ce63bf26f5ca383e42f8f316a6fb74b03295c270b3dec8769e7ad00d340",
+  "sender": "0xb805e39efd4538dfc0cc282d62a01f22f78e1ebb",
+  "state_before": {
+    "active": [
+      1,
+      2
+    ],
+    "attempts": 7,
+    "catalog": [
+      {
+        "attempts": 2,
+        "compiled": {
+          "decision": {
+            "anchors": [
+              {
+                "field": "execution",
+                "paragraph": 1,
+                "quote": "The per-job worst-case CPU execution bound is 0.003 seconds."
+              },
+              {
+                "field": "deadline",
+                "paragraph": 1,
+                "quote": "The completion deadline is 0.004 seconds relative to each release."
+              },
+              {
+                "field": "period",
+                "paragraph": 1,
+                "quote": "Consecutive releases are separated by at least 0.010 seconds."
+              },
+              {
+                "field": "model",
+                "paragraph": 2,
+                "quote": "Task pulse is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks."
+              }
+            ],
+            "deadline_ms": 4,
+            "execution_ms": 3,
+            "period_ms": 10,
+            "status": "BOUNDED"
+          },
+          "specification": {
+            "paragraphs": [
+              "# Synthetic specification: pulse",
+              "Final specification for task pulse. The per-job worst-case CPU execution bound is 0.003 seconds. The completion deadline is 0.004 seconds relative to each release. Consecutive releases are separated by at least 0.010 seconds.",
+              "Task pulse is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.",
+              "An observed average of 0.001 seconds is not the worst-case execution bound. A different task called archive has a 0.060-second deadline; it is not pulse. These are synthetic declarations, not measured hardware guarantees."
+            ],
+            "sha256": "60979974046867c4b2a149b6f9d959bafa336d50fb855fae71e84bff63343d8a",
+            "text": "# Synthetic specification: pulse\n\nFinal specification for task pulse. The per-job worst-case CPU execution bound is 0.003 seconds. The completion deadline is 0.004 seconds relative to each release. Consecutive releases are separated by at least 0.010 seconds.\n\nTask pulse is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nAn observed average of 0.001 seconds is not the worst-case execution bound. A different task called archive has a 0.060-second deadline; it is not pulse. These are synthetic declarations, not measured hardware guarantees.\n",
+            "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/pulse.md"
+          }
+        },
+        "last_attempt_revision": 4,
+        "owner": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "sha256": "60979974046867c4b2a149b6f9d959bafa336d50fb855fae71e84bff63343d8a",
+        "status": "WAITING",
+        "task": "pulse",
+        "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/pulse.md"
+      },
+      {
+        "attempts": 2,
+        "compiled": {
+          "decision": {
+            "anchors": [
+              {
+                "field": "execution",
+                "paragraph": 1,
+                "quote": "The per-job worst-case CPU execution bound is 3 milliseconds."
+              },
+              {
+                "field": "deadline",
+                "paragraph": 1,
+                "quote": "The completion deadline is 4 milliseconds relative to each release."
+              },
+              {
+                "field": "period",
+                "paragraph": 1,
+                "quote": "Consecutive releases are separated by at least 10 milliseconds."
+              },
+              {
+                "field": "model",
+                "paragraph": 2,
+                "quote": "Task scan is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks."
+              }
+            ],
+            "deadline_ms": 4,
+            "execution_ms": 3,
+            "period_ms": 10,
+            "status": "BOUNDED"
+          },
+          "specification": {
+            "paragraphs": [
+              "# Synthetic specification: scan",
+              "Final specification for task scan. The per-job worst-case CPU execution bound is 3 milliseconds. The completion deadline is 4 milliseconds relative to each release. Consecutive releases are separated by at least 10 milliseconds.",
+              "Task scan is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.",
+              "A desired throughput of one job every 2 milliseconds is merely a target and overrides no guaranteed bound. These are synthetic declarations, not measured hardware guarantees."
+            ],
+            "sha256": "6f2c96d78f63d3ea123938e0d189ecd9e539fb382e020a19af279d745c0986d2",
+            "text": "# Synthetic specification: scan\n\nFinal specification for task scan. The per-job worst-case CPU execution bound is 3 milliseconds. The completion deadline is 4 milliseconds relative to each release. Consecutive releases are separated by at least 10 milliseconds.\n\nTask scan is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nA desired throughput of one job every 2 milliseconds is merely a target and overrides no guaranteed bound. These are synthetic declarations, not measured hardware guarantees.\n",
+            "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/scan.md"
+          }
+        },
+        "last_attempt_revision": 3,
+        "owner": "0xb805e39efd4538dfc0cc282d62a01f22f78e1ebb",
+        "sha256": "6f2c96d78f63d3ea123938e0d189ecd9e539fb382e020a19af279d745c0986d2",
+        "status": "ACTIVE",
+        "task": "scan",
+        "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/scan.md"
+      },
+      {
+        "attempts": 1,
+        "compiled": {
+          "decision": {
+            "anchors": [
+              {
+                "field": "execution",
+                "paragraph": 1,
+                "quote": "The per-job worst-case CPU execution bound is 2 milliseconds."
+              },
+              {
+                "field": "deadline",
+                "paragraph": 1,
+                "quote": "The completion deadline is 10 milliseconds relative to each release."
+              },
+              {
+                "field": "period",
+                "paragraph": 1,
+                "quote": "Consecutive releases are separated by at least 10 milliseconds."
+              },
+              {
+                "field": "model",
+                "paragraph": 2,
+                "quote": "Task bulk is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks."
+              }
+            ],
+            "deadline_ms": 10,
+            "execution_ms": 2,
+            "period_ms": 10,
+            "status": "BOUNDED"
+          },
+          "specification": {
+            "paragraphs": [
+              "# Synthetic specification: bulk",
+              "Final specification for task bulk. The per-job worst-case CPU execution bound is 2 milliseconds. The completion deadline is 10 milliseconds relative to each release. Consecutive releases are separated by at least 10 milliseconds.",
+              "Task bulk is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.",
+              "These are synthetic declarations, not measured hardware guarantees."
+            ],
+            "sha256": "bab0160f55fc09ff5a8208269a76444b56f540d2ea064da60c90985da13e6b7f",
+            "text": "# Synthetic specification: bulk\n\nFinal specification for task bulk. The per-job worst-case CPU execution bound is 2 milliseconds. The completion deadline is 10 milliseconds relative to each release. Consecutive releases are separated by at least 10 milliseconds.\n\nTask bulk is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nThese are synthetic declarations, not measured hardware guarantees.\n",
+            "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/bulk.md"
+          }
+        },
+        "last_attempt_revision": 1,
+        "owner": "0xb805e39efd4538dfc0cc282d62a01f22f78e1ebb",
+        "sha256": "bab0160f55fc09ff5a8208269a76444b56f540d2ea064da60c90985da13e6b7f",
+        "status": "ACTIVE",
+        "task": "bulk",
+        "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/bulk.md"
+      },
+      {
+        "attempts": 1,
+        "compiled": {
+          "decision": {
+            "anchors": [
+              {
+                "field": "uncertainty",
+                "paragraph": 1,
+                "quote": "No worst-case CPU execution bound is specified; the average is not an upper bound."
+              }
+            ],
+            "deadline_ms": null,
+            "execution_ms": null,
+            "period_ms": null,
+            "status": "UNRESOLVED"
+          },
+          "specification": {
+            "paragraphs": [
+              "# Synthetic specification: unknown",
+              "Final specification for task unknown. The observed average CPU execution time is 1 millisecond. No worst-case CPU execution bound is specified; the average is not an upper bound. The completion deadline is 4 milliseconds relative to release, with consecutive releases separated by at least 10 milliseconds.",
+              "Task unknown is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.",
+              "These are synthetic declarations, not measured hardware guarantees."
+            ],
+            "sha256": "aace68188f60ac6873786b6a98b38c7f2410dd1f86640092864905ad2dfba5be",
+            "text": "# Synthetic specification: unknown\n\nFinal specification for task unknown. The observed average CPU execution time is 1 millisecond. No worst-case CPU execution bound is specified; the average is not an upper bound. The completion deadline is 4 milliseconds relative to release, with consecutive releases separated by at least 10 milliseconds.\n\nTask unknown is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nThese are synthetic declarations, not measured hardware guarantees.\n",
+            "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/unknown.md"
+          }
+        },
+        "last_attempt_revision": 0,
+        "owner": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "sha256": "aace68188f60ac6873786b6a98b38c7f2410dd1f86640092864905ad2dfba5be",
+        "status": "UNRESOLVED",
+        "task": "unknown",
+        "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/unknown.md"
+      },
+      {
+        "attempts": 1,
+        "compiled": {
+          "decision": {
+            "anchors": [
+              {
+                "field": "execution",
+                "paragraph": 1,
+                "quote": "The per-job worst-case CPU execution bound is 1 millisecond."
+              },
+              {
+                "field": "deadline",
+                "paragraph": 1,
+                "quote": "The completion deadline is 7 milliseconds relative to each release."
+              },
+              {
+                "field": "period",
+                "paragraph": 1,
+                "quote": "Consecutive releases are separated by at least 7 milliseconds."
+              },
+              {
+                "field": "model",
+                "paragraph": 2,
+                "quote": "Task odd is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks."
+              }
+            ],
+            "deadline_ms": 7,
+            "execution_ms": 1,
+            "period_ms": 7,
+            "status": "BOUNDED"
+          },
+          "specification": {
+            "paragraphs": [
+              "# Synthetic specification: odd",
+              "Final specification for task odd. The per-job worst-case CPU execution bound is 1 millisecond. The completion deadline is 7 milliseconds relative to each release. Consecutive releases are separated by at least 7 milliseconds.",
+              "Task odd is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.",
+              "The seven-millisecond release interval is intentional and must not be rounded or changed to fit an admission policy. These are synthetic declarations, not measured hardware guarantees."
+            ],
+            "sha256": "4f1d91ae0b60ddcda69f5e3d892e983f86aabb36c5404dad4f58482e3c2825c5",
+            "text": "# Synthetic specification: odd\n\nFinal specification for task odd. The per-job worst-case CPU execution bound is 1 millisecond. The completion deadline is 7 milliseconds relative to each release. Consecutive releases are separated by at least 7 milliseconds.\n\nTask odd is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nThe seven-millisecond release interval is intentional and must not be rounded or changed to fit an admission policy. These are synthetic declarations, not measured hardware guarantees.\n",
+            "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/odd.md"
+          }
+        },
+        "last_attempt_revision": 2,
+        "owner": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "sha256": "4f1d91ae0b60ddcda69f5e3d892e983f86aabb36c5404dad4f58482e3c2825c5",
+        "status": "UNSUPPORTED",
+        "task": "odd",
+        "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/odd.md"
+      },
+      {
+        "attempts": 0,
+        "compiled": null,
+        "last_attempt_revision": -1,
+        "owner": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "sha256": "01607db4d908968e33e0b170557e4f6a7598a5329d140cb1d827ff799f37f8da",
+        "status": "UNSEEN",
+        "task": "fill",
+        "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/fill.md"
+      }
+    ],
+    "demand": [
+      0,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      10,
+      10,
+      10,
+      10,
+      13,
+      13,
+      13,
+      13,
+      13,
+      13,
+      15,
+      15,
+      15,
+      15,
+      18,
+      18,
+      18,
+      18,
+      18,
+      18,
+      20,
+      20,
+      20,
+      20,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      25,
+      25,
+      25,
+      25,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      30
+    ],
+    "history": [
+      {
+        "caller": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "fresh_interpretation": true,
+        "index": 3,
+        "offered_demand": null,
+        "operation": "ACTIVATE",
+        "outcome": "UNRESOLVED",
+        "revision_after": 0,
+        "revision_before": 0,
+        "witness": null
+      },
+      {
+        "caller": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "fresh_interpretation": true,
+        "index": 0,
+        "offered_demand": [
+          0,
+          0,
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18
+        ],
+        "operation": "ACTIVATE",
+        "outcome": "ACTIVE",
+        "revision_after": 1,
+        "revision_before": 0,
+        "witness": null
+      },
+      {
+        "caller": "0xb805e39efd4538dfc0cc282d62a01f22f78e1ebb",
+        "fresh_interpretation": true,
+        "index": 1,
+        "offered_demand": [
+          0,
+          0,
+          0,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36
+        ],
+        "operation": "ACTIVATE",
+        "outcome": "WAITING",
+        "revision_after": 1,
+        "revision_before": 1,
+        "witness": {
+          "capacity_ms": 4,
+          "contributions": [
+            {
+              "demand_ms": 3,
+              "index": 0
+            },
+            {
+              "demand_ms": 3,
+              "index": 1
+            }
+          ],
+          "demand_ms": 6,
+          "horizon_ms": 4
+        }
+      },
+      {
+        "caller": "0xb805e39efd4538dfc0cc282d62a01f22f78e1ebb",
+        "fresh_interpretation": true,
+        "index": 2,
+        "offered_demand": [
+          0,
+          0,
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          5,
+          5,
+          5,
+          5,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          10,
+          10,
+          10,
+          10,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          15,
+          15,
+          15,
+          15,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          20,
+          20,
+          20,
+          20,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          25,
+          25,
+          25,
+          25,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          30
+        ],
+        "operation": "ACTIVATE",
+        "outcome": "ACTIVE",
+        "revision_after": 2,
+        "revision_before": 1,
+        "witness": null
+      },
+      {
+        "caller": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "fresh_interpretation": true,
+        "index": 4,
+        "offered_demand": null,
+        "operation": "ACTIVATE",
+        "outcome": "UNSUPPORTED",
+        "revision_after": 2,
+        "revision_before": 2,
+        "witness": null
+      },
+      {
+        "caller": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "index": 0,
+        "operation": "RELEASE",
+        "revision_after": 3,
+        "revision_before": 2
+      },
+      {
+        "caller": "0xb805e39efd4538dfc0cc282d62a01f22f78e1ebb",
+        "fresh_interpretation": false,
+        "index": 1,
+        "offered_demand": [
+          0,
+          0,
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          5,
+          5,
+          5,
+          5,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          10,
+          10,
+          10,
+          10,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          15,
+          15,
+          15,
+          15,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          20,
+          20,
+          20,
+          20,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          25,
+          25,
+          25,
+          25,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          30
+        ],
+        "operation": "ACTIVATE",
+        "outcome": "ACTIVE",
+        "revision_after": 4,
+        "revision_before": 3,
+        "witness": null
+      },
+      {
+        "caller": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "fresh_interpretation": false,
+        "index": 0,
+        "offered_demand": [
+          0,
+          0,
+          0,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          8,
+          8,
+          8,
+          8,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          16,
+          16,
+          16,
+          16,
+          22,
+          22,
+          22,
+          22,
+          22,
+          22,
+          24,
+          24,
+          24,
+          24,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          32,
+          32,
+          32,
+          32,
+          38,
+          38,
+          38,
+          38,
+          38,
+          38,
+          40,
+          40,
+          40,
+          40,
+          46,
+          46,
+          46,
+          46,
+          46,
+          46,
+          48
+        ],
+        "operation": "ACTIVATE",
+        "outcome": "WAITING",
+        "revision_after": 4,
+        "revision_before": 4,
+        "witness": {
+          "capacity_ms": 4,
+          "contributions": [
+            {
+              "demand_ms": 3,
+              "index": 1
+            },
+            {
+              "demand_ms": 0,
+              "index": 2
+            },
+            {
+              "demand_ms": 3,
+              "index": 0
+            }
+          ],
+          "demand_ms": 6,
+          "horizon_ms": 4
+        }
+      }
+    ],
+    "occupied_60": 30,
+    "revision": 4
+  },
+  "state": {
+    "active": [
+      1
+    ],
+    "attempts": 7,
+    "catalog": [
+      {
+        "attempts": 2,
+        "compiled": {
+          "decision": {
+            "anchors": [
+              {
+                "field": "execution",
+                "paragraph": 1,
+                "quote": "The per-job worst-case CPU execution bound is 0.003 seconds."
+              },
+              {
+                "field": "deadline",
+                "paragraph": 1,
+                "quote": "The completion deadline is 0.004 seconds relative to each release."
+              },
+              {
+                "field": "period",
+                "paragraph": 1,
+                "quote": "Consecutive releases are separated by at least 0.010 seconds."
+              },
+              {
+                "field": "model",
+                "paragraph": 2,
+                "quote": "Task pulse is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks."
+              }
+            ],
+            "deadline_ms": 4,
+            "execution_ms": 3,
+            "period_ms": 10,
+            "status": "BOUNDED"
+          },
+          "specification": {
+            "paragraphs": [
+              "# Synthetic specification: pulse",
+              "Final specification for task pulse. The per-job worst-case CPU execution bound is 0.003 seconds. The completion deadline is 0.004 seconds relative to each release. Consecutive releases are separated by at least 0.010 seconds.",
+              "Task pulse is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.",
+              "An observed average of 0.001 seconds is not the worst-case execution bound. A different task called archive has a 0.060-second deadline; it is not pulse. These are synthetic declarations, not measured hardware guarantees."
+            ],
+            "sha256": "60979974046867c4b2a149b6f9d959bafa336d50fb855fae71e84bff63343d8a",
+            "text": "# Synthetic specification: pulse\n\nFinal specification for task pulse. The per-job worst-case CPU execution bound is 0.003 seconds. The completion deadline is 0.004 seconds relative to each release. Consecutive releases are separated by at least 0.010 seconds.\n\nTask pulse is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nAn observed average of 0.001 seconds is not the worst-case execution bound. A different task called archive has a 0.060-second deadline; it is not pulse. These are synthetic declarations, not measured hardware guarantees.\n",
+            "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/pulse.md"
+          }
+        },
+        "last_attempt_revision": 4,
+        "owner": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "sha256": "60979974046867c4b2a149b6f9d959bafa336d50fb855fae71e84bff63343d8a",
+        "status": "WAITING",
+        "task": "pulse",
+        "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/pulse.md"
+      },
+      {
+        "attempts": 2,
+        "compiled": {
+          "decision": {
+            "anchors": [
+              {
+                "field": "execution",
+                "paragraph": 1,
+                "quote": "The per-job worst-case CPU execution bound is 3 milliseconds."
+              },
+              {
+                "field": "deadline",
+                "paragraph": 1,
+                "quote": "The completion deadline is 4 milliseconds relative to each release."
+              },
+              {
+                "field": "period",
+                "paragraph": 1,
+                "quote": "Consecutive releases are separated by at least 10 milliseconds."
+              },
+              {
+                "field": "model",
+                "paragraph": 2,
+                "quote": "Task scan is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks."
+              }
+            ],
+            "deadline_ms": 4,
+            "execution_ms": 3,
+            "period_ms": 10,
+            "status": "BOUNDED"
+          },
+          "specification": {
+            "paragraphs": [
+              "# Synthetic specification: scan",
+              "Final specification for task scan. The per-job worst-case CPU execution bound is 3 milliseconds. The completion deadline is 4 milliseconds relative to each release. Consecutive releases are separated by at least 10 milliseconds.",
+              "Task scan is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.",
+              "A desired throughput of one job every 2 milliseconds is merely a target and overrides no guaranteed bound. These are synthetic declarations, not measured hardware guarantees."
+            ],
+            "sha256": "6f2c96d78f63d3ea123938e0d189ecd9e539fb382e020a19af279d745c0986d2",
+            "text": "# Synthetic specification: scan\n\nFinal specification for task scan. The per-job worst-case CPU execution bound is 3 milliseconds. The completion deadline is 4 milliseconds relative to each release. Consecutive releases are separated by at least 10 milliseconds.\n\nTask scan is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nA desired throughput of one job every 2 milliseconds is merely a target and overrides no guaranteed bound. These are synthetic declarations, not measured hardware guarantees.\n",
+            "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/scan.md"
+          }
+        },
+        "last_attempt_revision": 3,
+        "owner": "0xb805e39efd4538dfc0cc282d62a01f22f78e1ebb",
+        "sha256": "6f2c96d78f63d3ea123938e0d189ecd9e539fb382e020a19af279d745c0986d2",
+        "status": "ACTIVE",
+        "task": "scan",
+        "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/scan.md"
+      },
+      {
+        "attempts": 1,
+        "compiled": {
+          "decision": {
+            "anchors": [
+              {
+                "field": "execution",
+                "paragraph": 1,
+                "quote": "The per-job worst-case CPU execution bound is 2 milliseconds."
+              },
+              {
+                "field": "deadline",
+                "paragraph": 1,
+                "quote": "The completion deadline is 10 milliseconds relative to each release."
+              },
+              {
+                "field": "period",
+                "paragraph": 1,
+                "quote": "Consecutive releases are separated by at least 10 milliseconds."
+              },
+              {
+                "field": "model",
+                "paragraph": 2,
+                "quote": "Task bulk is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks."
+              }
+            ],
+            "deadline_ms": 10,
+            "execution_ms": 2,
+            "period_ms": 10,
+            "status": "BOUNDED"
+          },
+          "specification": {
+            "paragraphs": [
+              "# Synthetic specification: bulk",
+              "Final specification for task bulk. The per-job worst-case CPU execution bound is 2 milliseconds. The completion deadline is 10 milliseconds relative to each release. Consecutive releases are separated by at least 10 milliseconds.",
+              "Task bulk is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.",
+              "These are synthetic declarations, not measured hardware guarantees."
+            ],
+            "sha256": "bab0160f55fc09ff5a8208269a76444b56f540d2ea064da60c90985da13e6b7f",
+            "text": "# Synthetic specification: bulk\n\nFinal specification for task bulk. The per-job worst-case CPU execution bound is 2 milliseconds. The completion deadline is 10 milliseconds relative to each release. Consecutive releases are separated by at least 10 milliseconds.\n\nTask bulk is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nThese are synthetic declarations, not measured hardware guarantees.\n",
+            "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/bulk.md"
+          }
+        },
+        "last_attempt_revision": 1,
+        "owner": "0xb805e39efd4538dfc0cc282d62a01f22f78e1ebb",
+        "sha256": "bab0160f55fc09ff5a8208269a76444b56f540d2ea064da60c90985da13e6b7f",
+        "status": "AVAILABLE",
+        "task": "bulk",
+        "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/bulk.md"
+      },
+      {
+        "attempts": 1,
+        "compiled": {
+          "decision": {
+            "anchors": [
+              {
+                "field": "uncertainty",
+                "paragraph": 1,
+                "quote": "No worst-case CPU execution bound is specified; the average is not an upper bound."
+              }
+            ],
+            "deadline_ms": null,
+            "execution_ms": null,
+            "period_ms": null,
+            "status": "UNRESOLVED"
+          },
+          "specification": {
+            "paragraphs": [
+              "# Synthetic specification: unknown",
+              "Final specification for task unknown. The observed average CPU execution time is 1 millisecond. No worst-case CPU execution bound is specified; the average is not an upper bound. The completion deadline is 4 milliseconds relative to release, with consecutive releases separated by at least 10 milliseconds.",
+              "Task unknown is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.",
+              "These are synthetic declarations, not measured hardware guarantees."
+            ],
+            "sha256": "aace68188f60ac6873786b6a98b38c7f2410dd1f86640092864905ad2dfba5be",
+            "text": "# Synthetic specification: unknown\n\nFinal specification for task unknown. The observed average CPU execution time is 1 millisecond. No worst-case CPU execution bound is specified; the average is not an upper bound. The completion deadline is 4 milliseconds relative to release, with consecutive releases separated by at least 10 milliseconds.\n\nTask unknown is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nThese are synthetic declarations, not measured hardware guarantees.\n",
+            "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/unknown.md"
+          }
+        },
+        "last_attempt_revision": 0,
+        "owner": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "sha256": "aace68188f60ac6873786b6a98b38c7f2410dd1f86640092864905ad2dfba5be",
+        "status": "UNRESOLVED",
+        "task": "unknown",
+        "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/unknown.md"
+      },
+      {
+        "attempts": 1,
+        "compiled": {
+          "decision": {
+            "anchors": [
+              {
+                "field": "execution",
+                "paragraph": 1,
+                "quote": "The per-job worst-case CPU execution bound is 1 millisecond."
+              },
+              {
+                "field": "deadline",
+                "paragraph": 1,
+                "quote": "The completion deadline is 7 milliseconds relative to each release."
+              },
+              {
+                "field": "period",
+                "paragraph": 1,
+                "quote": "Consecutive releases are separated by at least 7 milliseconds."
+              },
+              {
+                "field": "model",
+                "paragraph": 2,
+                "quote": "Task odd is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks."
+              }
+            ],
+            "deadline_ms": 7,
+            "execution_ms": 1,
+            "period_ms": 7,
+            "status": "BOUNDED"
+          },
+          "specification": {
+            "paragraphs": [
+              "# Synthetic specification: odd",
+              "Final specification for task odd. The per-job worst-case CPU execution bound is 1 millisecond. The completion deadline is 7 milliseconds relative to each release. Consecutive releases are separated by at least 7 milliseconds.",
+              "Task odd is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.",
+              "The seven-millisecond release interval is intentional and must not be rounded or changed to fit an admission policy. These are synthetic declarations, not measured hardware guarantees."
+            ],
+            "sha256": "4f1d91ae0b60ddcda69f5e3d892e983f86aabb36c5404dad4f58482e3c2825c5",
+            "text": "# Synthetic specification: odd\n\nFinal specification for task odd. The per-job worst-case CPU execution bound is 1 millisecond. The completion deadline is 7 milliseconds relative to each release. Consecutive releases are separated by at least 7 milliseconds.\n\nTask odd is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nThe seven-millisecond release interval is intentional and must not be rounded or changed to fit an admission policy. These are synthetic declarations, not measured hardware guarantees.\n",
+            "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/odd.md"
+          }
+        },
+        "last_attempt_revision": 2,
+        "owner": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "sha256": "4f1d91ae0b60ddcda69f5e3d892e983f86aabb36c5404dad4f58482e3c2825c5",
+        "status": "UNSUPPORTED",
+        "task": "odd",
+        "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/odd.md"
+      },
+      {
+        "attempts": 0,
+        "compiled": null,
+        "last_attempt_revision": -1,
+        "owner": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "sha256": "01607db4d908968e33e0b170557e4f6a7598a5329d140cb1d827ff799f37f8da",
+        "status": "UNSEEN",
+        "task": "fill",
+        "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/fill.md"
+      }
+    ],
+    "demand": [
+      0,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      18,
+      18,
+      18,
+      18,
+      18,
+      18,
+      18
+    ],
+    "history": [
+      {
+        "caller": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "fresh_interpretation": true,
+        "index": 3,
+        "offered_demand": null,
+        "operation": "ACTIVATE",
+        "outcome": "UNRESOLVED",
+        "revision_after": 0,
+        "revision_before": 0,
+        "witness": null
+      },
+      {
+        "caller": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "fresh_interpretation": true,
+        "index": 0,
+        "offered_demand": [
+          0,
+          0,
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18
+        ],
+        "operation": "ACTIVATE",
+        "outcome": "ACTIVE",
+        "revision_after": 1,
+        "revision_before": 0,
+        "witness": null
+      },
+      {
+        "caller": "0xb805e39efd4538dfc0cc282d62a01f22f78e1ebb",
+        "fresh_interpretation": true,
+        "index": 1,
+        "offered_demand": [
+          0,
+          0,
+          0,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36
+        ],
+        "operation": "ACTIVATE",
+        "outcome": "WAITING",
+        "revision_after": 1,
+        "revision_before": 1,
+        "witness": {
+          "capacity_ms": 4,
+          "contributions": [
+            {
+              "demand_ms": 3,
+              "index": 0
+            },
+            {
+              "demand_ms": 3,
+              "index": 1
+            }
+          ],
+          "demand_ms": 6,
+          "horizon_ms": 4
+        }
+      },
+      {
+        "caller": "0xb805e39efd4538dfc0cc282d62a01f22f78e1ebb",
+        "fresh_interpretation": true,
+        "index": 2,
+        "offered_demand": [
+          0,
+          0,
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          5,
+          5,
+          5,
+          5,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          10,
+          10,
+          10,
+          10,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          15,
+          15,
+          15,
+          15,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          20,
+          20,
+          20,
+          20,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          25,
+          25,
+          25,
+          25,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          30
+        ],
+        "operation": "ACTIVATE",
+        "outcome": "ACTIVE",
+        "revision_after": 2,
+        "revision_before": 1,
+        "witness": null
+      },
+      {
+        "caller": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "fresh_interpretation": true,
+        "index": 4,
+        "offered_demand": null,
+        "operation": "ACTIVATE",
+        "outcome": "UNSUPPORTED",
+        "revision_after": 2,
+        "revision_before": 2,
+        "witness": null
+      },
+      {
+        "caller": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "index": 0,
+        "operation": "RELEASE",
+        "revision_after": 3,
+        "revision_before": 2
+      },
+      {
+        "caller": "0xb805e39efd4538dfc0cc282d62a01f22f78e1ebb",
+        "fresh_interpretation": false,
+        "index": 1,
+        "offered_demand": [
+          0,
+          0,
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          5,
+          5,
+          5,
+          5,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          10,
+          10,
+          10,
+          10,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          15,
+          15,
+          15,
+          15,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          20,
+          20,
+          20,
+          20,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          25,
+          25,
+          25,
+          25,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          30
+        ],
+        "operation": "ACTIVATE",
+        "outcome": "ACTIVE",
+        "revision_after": 4,
+        "revision_before": 3,
+        "witness": null
+      },
+      {
+        "caller": "0x2528652771bbb90a802b7cf4e13e822510a4c3e2",
+        "fresh_interpretation": false,
+        "index": 0,
+        "offered_demand": [
+          0,
+          0,
+          0,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          8,
+          8,
+          8,
+          8,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          16,
+          16,
+          16,
+          16,
+          22,
+          22,
+          22,
+          22,
+          22,
+          22,
+          24,
+          24,
+          24,
+          24,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          32,
+          32,
+          32,
+          32,
+          38,
+          38,
+          38,
+          38,
+          38,
+          38,
+          40,
+          40,
+          40,
+          40,
+          46,
+          46,
+          46,
+          46,
+          46,
+          46,
+          48
+        ],
+        "operation": "ACTIVATE",
+        "outcome": "WAITING",
+        "revision_after": 4,
+        "revision_before": 4,
+        "witness": {
+          "capacity_ms": 4,
+          "contributions": [
+            {
+              "demand_ms": 3,
+              "index": 1
+            },
+            {
+              "demand_ms": 0,
+              "index": 2
+            },
+            {
+              "demand_ms": 3,
+              "index": 0
+            }
+          ],
+          "demand_ms": 6,
+          "horizon_ms": 4
+        }
+      },
+      {
+        "caller": "0xb805e39efd4538dfc0cc282d62a01f22f78e1ebb",
+        "index": 2,
+        "operation": "RELEASE",
+        "revision_after": 5,
+        "revision_before": 4
+      }
+    ],
+    "occupied_60": 18,
+    "revision": 5
+  }
+}

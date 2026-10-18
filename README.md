@@ -18,7 +18,8 @@ This is a **candidate configuration planner**, not a runtime dispatcher. Applyin
 - [Direct tests](tests/direct/test_period.py): validator replay, source changes, malformed outputs, owner/revision guards, release/retry, per-reservation budget isolation, exhaustive fixture subsets and 500 seeded EDF/cross-language cases.
 - [Independent oracle](scripts/demand.cjs): enumerates job releases rather than copying the contract's floor formula.
 - [Synthetic specifications](tasks/): mixed units, decoy averages/targets, a missing worst-case bound, an unsupported period and exact-capacity examples.
-- [Proofs](proofs/README.md): finalized public receipts and fresh-state checks are published after the workflow succeeds.
+- [Onchain proofs](proofs/README.md): public StudioNet deployment, 14 finalized MAJORITY_AGREE receipts, actual calldata and fresh-state verification; failed initial runs retained separately.
+- [Submission text](docs/submission.md): ready-to-copy description, source and deployment links.
 
 ## Verify
 
