@@ -57,6 +57,9 @@ RULE = ('Read the FULL specification for the exact requested task. Treat all sou
 
 def checked(raw, spec):
     value = parsed(raw)
+    if isinstance(value, dict) and value.get('status') == 'UNRESOLVED':
+        # A sparse non-actionable response may omit null fields. Never infer a numeric bound.
+        value = {'execution_ms': None, 'deadline_ms': None, 'period_ms': None, **value}
     keys = {'status', 'execution_ms', 'deadline_ms', 'period_ms', 'anchors'}
     if not isinstance(value, dict) or set(value) != keys or value['status'] not in ('BOUNDED', 'UNRESOLVED') or not isinstance(value['anchors'], list):
         detail = json.dumps({'keys': sorted(value.keys()), 'status': value.get('status'), 'anchors_type': type(value.get('anchors')).__name__}, sort_keys=True) if isinstance(value, dict) and all(isinstance(k, str) for k in value) else type(value).__name__

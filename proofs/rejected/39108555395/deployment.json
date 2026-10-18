@@ -1,0 +1,50 @@
+{
+  "contract": "0x9efD3cb9bE0FB900Be6b188636502817eeA49a66",
+  "transaction": "0x5a0c5b820377523aca024847ccc823b1f8e5d8002a12c333acea1c037c1f0b7f",
+  "reports": [
+    {
+      "task": "pulse",
+      "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/pulse.md",
+      "sha256": "60979974046867c4b2a149b6f9d959bafa336d50fb855fae71e84bff63343d8a",
+      "text": "# Synthetic specification: pulse\n\nFinal specification for task pulse. The per-job worst-case CPU execution bound is 0.003 seconds. The completion deadline is 0.004 seconds relative to each release. Consecutive releases are separated by at least 0.010 seconds.\n\nTask pulse is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nAn observed average of 0.001 seconds is not the worst-case execution bound. A different task called archive has a 0.060-second deadline; it is not pulse. These are synthetic declarations, not measured hardware guarantees.\n"
+    },
+    {
+      "task": "scan",
+      "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/scan.md",
+      "sha256": "6f2c96d78f63d3ea123938e0d189ecd9e539fb382e020a19af279d745c0986d2",
+      "text": "# Synthetic specification: scan\n\nFinal specification for task scan. The per-job worst-case CPU execution bound is 3 milliseconds. The completion deadline is 4 milliseconds relative to each release. Consecutive releases are separated by at least 10 milliseconds.\n\nTask scan is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nA desired throughput of one job every 2 milliseconds is merely a target and overrides no guaranteed bound. These are synthetic declarations, not measured hardware guarantees.\n"
+    },
+    {
+      "task": "bulk",
+      "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/bulk.md",
+      "sha256": "bab0160f55fc09ff5a8208269a76444b56f540d2ea064da60c90985da13e6b7f",
+      "text": "# Synthetic specification: bulk\n\nFinal specification for task bulk. The per-job worst-case CPU execution bound is 2 milliseconds. The completion deadline is 10 milliseconds relative to each release. Consecutive releases are separated by at least 10 milliseconds.\n\nTask bulk is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nThese are synthetic declarations, not measured hardware guarantees.\n"
+    },
+    {
+      "task": "unknown",
+      "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/unknown.md",
+      "sha256": "aace68188f60ac6873786b6a98b38c7f2410dd1f86640092864905ad2dfba5be",
+      "text": "# Synthetic specification: unknown\n\nFinal specification for task unknown. The observed average CPU execution time is 1 millisecond. No worst-case CPU execution bound is specified; the average is not an upper bound. The completion deadline is 4 milliseconds relative to release, with consecutive releases separated by at least 10 milliseconds.\n\nTask unknown is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nThese are synthetic declarations, not measured hardware guarantees.\n"
+    },
+    {
+      "task": "odd",
+      "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/odd.md",
+      "sha256": "4f1d91ae0b60ddcda69f5e3d892e983f86aabb36c5404dad4f58482e3c2825c5",
+      "text": "# Synthetic specification: odd\n\nFinal specification for task odd. The per-job worst-case CPU execution bound is 1 millisecond. The completion deadline is 7 milliseconds relative to each release. Consecutive releases are separated by at least 7 milliseconds.\n\nTask odd is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nThe seven-millisecond release interval is intentional and must not be rounded or changed to fit an admission policy. These are synthetic declarations, not measured hardware guarantees.\n"
+    },
+    {
+      "task": "fill",
+      "url": "https://raw.githubusercontent.com/gabrieladash123-bit/period-gate/b13a856794fd92893f7fdfa25bc8c10e14f8d12f/tasks/fill.md",
+      "sha256": "01607db4d908968e33e0b170557e4f6a7598a5329d140cb1d827ff799f37f8da",
+      "text": "# Synthetic specification: fill\n\nFinal specification for task fill. The per-job worst-case CPU execution bound is 7 milliseconds. The completion deadline is 10 milliseconds relative to each release. Consecutive releases are separated by at least 10 milliseconds.\n\nTask fill is independent and fully preemptible, never self-suspends or blocks, and uses no shared locks.\n\nThese are synthetic declarations, not measured hardware guarantees.\n"
+    }
+  ],
+  "fixture_revision": "b13a856794fd92893f7fdfa25bc8c10e14f8d12f",
+  "source_sha256": "2ce9fcd77983efbfcdea82f1117197583b99cc6bc52faded241a4ec76be6c69e",
+  "network": "studionet",
+  "chain_id": 61999,
+  "callers": [
+    "0x1e498481e71e41e8a83814670a1660f01a6c8a3e",
+    "0xd8f1f1c860cdc3f78b2ba68c5615d8584149cb8e"
+  ]
+}

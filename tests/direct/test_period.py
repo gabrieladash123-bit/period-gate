@@ -60,6 +60,26 @@ def test_validator_checks_each_consequential_field(deploy,direct_vm,direct_alice
     mock(direct_vm,0,changed)
     assert direct_vm.run_validator() is False
 
+def test_sparse_unresolved_canonicalizes_only_nulls(deploy,direct_vm,direct_alice):
+    c=deploy(); direct_vm.sender=direct_alice
+    sparse={'status':'UNRESOLVED','anchors':decision(3)['anchors']}
+    mock(direct_vm,3,sparse); c.activate(3,0)
+    mock(direct_vm,3); assert direct_vm.run_validator() is True
+    state=c.get_state(); actual=state['catalog'][3]['compiled']['decision']
+    assert all(actual[k] is None for k in FIELDS[1:])
+    assert state['catalog'][3]['status']=='UNRESOLVED' and state['demand']==[0]*60
+
+@pytest.mark.parametrize('change',['bounded_missing','unresolved_numeric','extra_reason'])
+def test_sparse_response_never_infers_actionable_parameters(deploy,direct_vm,direct_alice,change):
+    c=deploy(); direct_vm.sender=direct_alice; i=0 if change=='bounded_missing' else 3
+    value=decision(i)
+    if change=='bounded_missing':del value['execution_ms']
+    elif change=='unresolved_numeric':value['execution_ms']=1
+    else:value['reason']='unrequested extra field'
+    before=c.get_state(); mock(direct_vm,i,value)
+    with direct_vm.expect_revert('LLM_ERROR'):c.activate(i,0)
+    assert c.get_state()==before
+
 @pytest.mark.parametrize('index',[0,3])
 @pytest.mark.parametrize('change',['audit','source'])
 def test_validator_audits_and_refetches(deploy,direct_vm,direct_alice,change,index):
