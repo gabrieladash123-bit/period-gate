@@ -1,0 +1,20 @@
+{
+  "contract": "0x47E9f9D601700F784cbDA0fD2988fffb565783d1",
+  "source_sha256": "f78e71f57a43f3474f5724513b7269d23c188bf8955334f5fa3485779432a122",
+  "failed_transaction": {
+    "hash": "0x910f91abcd9a9b07463c1565da4e92906d9d7062e901b4426ddd75d22a80e8d6",
+    "status": "FINALIZED",
+    "execution": "ERROR",
+    "result": "MAJORITY_DISAGREE",
+    "agree": 0,
+    "disagree": 3,
+    "idle": 2
+  },
+  "state_unchanged": true,
+  "revision": 2,
+  "active": [
+    0,
+    2
+  ],
+  "occupied_60": 30
+}

@@ -43,10 +43,10 @@ function replay(before,item,after,d){
  assert(s.demand.every((n,i)=>n<=i+1)&&s.attempts<=18&&s.history.length<=36,'Configuration invariant');
 }
 const plan=[
+ {label:'unknown-bound',method:'activate',args:[3,0],caller:0},
  {label:'pulse-admit',method:'activate',args:[0,0],caller:0},
  {label:'scan-deadline-reject',method:'activate',args:[1,1],caller:1},
  {label:'bulk-admit',method:'activate',args:[2,1],caller:1},
- {label:'unknown-bound',method:'activate',args:[3,2],caller:0},
  {label:'odd-period',method:'activate',args:[4,2],caller:0},
  {label:'wrong-owner-release',method:'release',args:[0,2],caller:1,error:'[EXPECTED] Caller does not own reservation'},
  {label:'pulse-release',method:'release',args:[0,2],caller:0},
@@ -59,7 +59,8 @@ const plan=[
 ];
 function final(state){
  assert(equal(state.active,[1,5])&&state.revision===6&&state.attempts===8&&state.occupied_60===60&&state.history.length===10,'Final exact-capacity plan');
- assert(state.history[1].witness.horizon_ms===4&&state.history[1].witness.demand_ms===6&&state.history[1].offered_demand[59]===36,'Low-utilization short-deadline failure');
+ const rejected=state.history.find(h=>h.operation==='ACTIVATE'&&h.index===1&&h.outcome==='WAITING');
+ assert(rejected.witness.horizon_ms===4&&rejected.witness.demand_ms===6&&rejected.offered_demand[59]===36,'Low-utilization short-deadline failure');
  assert(state.history[6].fresh_interpretation===false&&state.history[6].outcome==='ACTIVE','Released capacity enables cached retry');
  assert(state.catalog[3].status==='UNRESOLVED'&&state.catalog[4].status==='UNSUPPORTED','Ineligible sources cannot reserve');
 }

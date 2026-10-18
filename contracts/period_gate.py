@@ -59,7 +59,8 @@ def checked(raw, spec):
     value = parsed(raw)
     keys = {'status', 'execution_ms', 'deadline_ms', 'period_ms', 'anchors'}
     if not isinstance(value, dict) or set(value) != keys or value['status'] not in ('BOUNDED', 'UNRESOLVED') or not isinstance(value['anchors'], list):
-        fail('[LLM_ERROR] Invalid interpretation schema')
+        detail = json.dumps({'keys': sorted(value.keys()), 'status': value.get('status'), 'anchors_type': type(value.get('anchors')).__name__}, sort_keys=True) if isinstance(value, dict) and all(isinstance(k, str) for k in value) else type(value).__name__
+        fail('[LLM_ERROR] Invalid interpretation schema: ' + detail)
     bounded = value['status'] == 'BOUNDED'
     for field in ('execution_ms', 'deadline_ms', 'period_ms'):
         if bounded:
@@ -82,13 +83,19 @@ def checked(raw, spec):
 
 
 def interpret(task, spec):
-    schema = ('Return exactly {"status":"BOUNDED|UNRESOLVED","execution_ms":3,"deadline_ms":4,'
+    schema = ('Return one JSON object with exactly five keys: status, execution_ms, deadline_ms, '
+              'period_ms, anchors. Choose one of the TWO COMPLETE SHAPES below. Never omit null '
+              'keys, never add reason/confidence keys, and anchors is ALWAYS a JSON array. '
+              'BOUNDED shape: {"status":"BOUNDED","execution_ms":3,"deadline_ms":4,'
               '"period_ms":10,"anchors":[{"field":"execution","paragraph":0,"quote":"exact quote"},'
               '{"field":"deadline","paragraph":0,"quote":"exact quote"},'
               '{"field":"period","paragraph":0,"quote":"exact quote"},'
-              '{"field":"model","paragraph":0,"quote":"exact quote"}]}. For UNRESOLVED all three '
-              'numbers must be null and anchors must contain only field uncertainty; genuine absence '
-              'may use paragraph -1 and empty quote. Do not invent any example numbers. ')
+              '{"field":"model","paragraph":0,"quote":"exact quote"}]}. '
+              'UNRESOLVED shape: {"status":"UNRESOLVED","execution_ms":null,"deadline_ms":null,'
+              '"period_ms":null,"anchors":[{"field":"uncertainty","paragraph":0,"quote":"exact quote"}]}. '
+              'For genuine absence only, the one uncertainty anchor may instead use paragraph -1 and '
+              'empty quote. Preserve this complete five-key shape including all nulls. Replace example '
+              'numbers, paragraph indices and quotes with the source-supported values. ')
     return checked(gl.nondet.exec_prompt('PERIOD-INTERPRET\n' + RULE + schema + '\nTask: ' + task +
         '\nParagraphs: ' + json.dumps(spec['paragraphs'], ensure_ascii=True), response_format='json'), spec)
 

@@ -60,10 +60,11 @@ def test_validator_checks_each_consequential_field(deploy,direct_vm,direct_alice
     mock(direct_vm,0,changed)
     assert direct_vm.run_validator() is False
 
+@pytest.mark.parametrize('index',[0,3])
 @pytest.mark.parametrize('change',['audit','source'])
-def test_validator_audits_and_refetches(deploy,direct_vm,direct_alice,change):
-    c=deploy(); direct_vm.sender=direct_alice; mock(direct_vm,0); c.activate(0,0)
-    mock(direct_vm,0,valid=change!='audit')
+def test_validator_audits_and_refetches(deploy,direct_vm,direct_alice,change,index):
+    c=deploy(); direct_vm.sender=direct_alice; mock(direct_vm,index); c.activate(index,0)
+    mock(direct_vm,index,valid=change!='audit')
     if change=='source':
         direct_vm.clear_mocks(); direct_vm.mock_web(r'.*',{'status':200,'body':b'Changed source. '*20})
     assert direct_vm.run_validator() is False
@@ -73,6 +74,7 @@ def test_validator_audits_and_refetches(deploy,direct_vm,direct_alice,change):
  {'execution_ms':60001}, {'period_ms':None}, {'status':'APPROVED'}, {'anchors':[]},
  {'anchors':[{'field':'execution','paragraph':True,'quote':'fabricated source text'}]*4},
  {'anchors':[{'field':'execution','paragraph':1,'quote':'fabricated source text'}]*4},
+    {'anchors':{'uncertainty':{'paragraph':1,'quote':'a quote in an object'}}},
  {'confidence':0.99},
 ])
 def test_malformed_model_does_not_consume_capacity(deploy,direct_vm,direct_alice,bad):
